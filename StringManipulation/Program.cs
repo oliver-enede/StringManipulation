@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace StringManipulation
 {
@@ -7,12 +8,12 @@ namespace StringManipulation
     {
         static void Main()
         {
-            // List of words
-            List<string> words = new List<string> { "computer", "programming", "hangman", "software", "developer" };
+            // Load words from file
+            string[] words = File.ReadAllLines("C:\\Users\\olive\\source\\repos\\StringManipulation\\StringManipulation\\Files\\Words.txt");
 
             // Randomly select a word
             Random random = new Random();
-            string wordToGuess = words[random.Next(words.Count)].ToLower();
+            string wordToGuess = words[random.Next(words.Length)].ToLower();
 
             // Create a list of characters to represent the word with underscores
             char[] guessedWord = new char[wordToGuess.Length];
